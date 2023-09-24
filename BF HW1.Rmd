@@ -1,0 +1,65 @@
+---
+title: "Homework1"
+author: "Jiayi"
+date: '2023-09-19'
+output: html_document
+---
+
+```{r}
+#import file
+employee=read.csv("Typical_Employee_Survey_Data.csv",header = FALSE)
+View(employee)
+
+#1
+names(employee)[1] <- "Age"
+names(employee)[2] <- "Gender"
+names(employee)[3] <- "Satisfication"
+names(employee)[4] <- "Job_characteristics_most_important"
+names(employee)[5] <- "Yrs_present_employer"
+names(employee)[6] <- "Likely_promoted_5yrs"
+names(employee)[7] <- "Decision_affect_your_work"
+names(employee)[8] <- "Participate_budgetary"
+names(employee)[9] <- "Feel_proud"
+names(employee)[10] <- "Turn_down_another_job"
+names(employee)[11] <- "Relationship_with_colleagues"
+View(employee)
+employee
+
+#2
+summary(employee)
+boxplot(employee)
+
+#4
+str(employee)
+employee$Gender <- as.factor(employee$Gender)
+employee$Satisfication <- as.factor(employee$Satisfication)
+employee$Job_characteristics_most_important <- as.factor(employee$Job_characteristics_most_important)
+employee$Likely_promoted_5yrs <- as.factor(employee$Likely_promoted_5yrs)
+employee$Decision_affect_your_work <- as.factor(employee$Decision_affect_your_work)
+employee$Participate_budgetary <- as.factor(employee$Participate_budgetary)
+employee$Feel_proud <- as.factor(employee$Feel_proud)
+employee$Turn_down_another_job <- as.factor(employee$Turn_down_another_job)
+employee$Relationship_with_colleagues <- as.factor(employee$Relationship_with_colleagues)
+str(employee)
+
+#4
+hist(employee$Age)
+pie(table(employee$Gender),main = "Employee Gender")
+barplot(table(employee$Satisfication),main = "Satisfaction of Employees",xlab = "Satisfaction Level", ylab = "Frequency")
+plot(employee$Job_characteristics_most_important,main = "Characterist of most important in Job",xlab = "Characteristic Importance", ylab = "Frequency")
+hist(employee$Yrs_present_employer)
+plot(employee$Likely_promoted_5yrs,main = "How Likely Will Be Promoted in 5 Yrs",xlab = "Likelyhood level", ylab = "Frequency")
+plot(employee$Decision_affect_your_work,main = "Decision effect Work",xlab = "Decision_affect_your_work", ylab = "Frequency")
+pie(table(employee$Participate_budgetary))
+pie(table(employee$Feel_proud))
+pie(table(employee$Turn_down_another_job))
+plot(employee$Relationship_with_colleagues,main = "Relationship with Colleagues",xlab = "Relationship_with_colleagues", ylab = "Frequency")
+
+#5
+plot(employee$Age,employee$Yrs_present_employer)#scatterplot
+plot(employee$Job_characteristics_most_important,employee$Age)#boxplot
+plot(employee$Yrs_present_employer,employee$Participate_budgetary)
+
+
+```
+
