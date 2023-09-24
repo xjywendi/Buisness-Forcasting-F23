@@ -57,8 +57,7 @@ plot(employee$Relationship_with_colleagues,main = "Relationship with Colleagues"
 
 #5
 plot(employee$Age,employee$Yrs_present_employer)#scatterplot
-plot(employee$Job_characteristics_most_important,employee$Age)#boxplot
-plot(employee$Yrs_present_employer,employee$Participate_budgetary)
+plot(employee)
 
 
 ```
